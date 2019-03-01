@@ -5,6 +5,8 @@ ruby '2.6.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
+# Use devise for all authenication
+gem 'devise'
 #Use PostgreSQL for database
 gem 'pg'
 #Add Heroku integration
