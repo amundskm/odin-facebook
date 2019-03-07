@@ -1,0 +1,13 @@
+<nav>
+    <ul>
+        <li> <%= link_to @user.name, user_path %> </li>
+        <li> <%= link_to 'Home', users_path %> </li>
+        <li> <%= link_to 'Find Friends', '#' %> </li>
+        <%
+=begin%>
+          <li> <%= link_to 'Notification', '#' %> </li>
+          make it so it is a '# Notification/s (pluralizer)'
+<%
+=end%>
+    </ul>
+</nav>
