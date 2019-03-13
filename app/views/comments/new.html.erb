@@ -1,0 +1,6 @@
+<%= form_for(@comment) do |f| %>
+  <%= f.text_area :content%>
+  <%= f.hidden_field :commentable_id %>
+  <%= f.hidden_field :commentable_type %>
+  <%= f.submit "Comment"%>
+<% end %>

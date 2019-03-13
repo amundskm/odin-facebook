@@ -1,0 +1,7 @@
+<li>
+    <span><%= link_to post.user.name, post.user %></span>
+    <span><%= post.content %></span>
+    <span><%= link_to 'Edit', '#'%></span>
+    <span><%= link_to "Comment", new_comment_path( commentable_id: post.id, commentable_type: "post" ) %></span>
+    <%= render post.comments %>
+</li>
