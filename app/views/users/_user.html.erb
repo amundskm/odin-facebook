@@ -1,1 +1,9 @@
-<li><%= link_to user.name, user %></li>
+<li>
+  <%= link_to user.name, user %>
+  <% unless @friends.include?(user) %>
+      <%= form_for FriendRequest.new do |f| %>
+        <%= hidden_field_tag :receiver_id, user.id %>
+        <%= f.submit "Add Friend", class: "btn btn-primary" %>
+      <% end %>
+  <% end %> 
+</li>

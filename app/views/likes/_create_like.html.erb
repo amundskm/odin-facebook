@@ -1,0 +1,5 @@
+<%= form_for Like.new do |f| %>
+  <%= f.hidden_field :likeable_id, value: likeable_id %>
+  <%= f.hidden_field :likeable_type, value: likeable_type %>
+  <%= f.submit "Like", class: "btn btn-primary" %>
+<% end %>

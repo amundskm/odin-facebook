@@ -1,0 +1,8 @@
+<li>
+    <%= friend_request.sender.name %> would like to be your friend.
+    <%= form_for(current_user.friendships.build) do |f| %>
+      <%= hidden_field_tag :friend_id, friend_request.sender_id %>
+      <%= hidden_field_tag :friend_request_id, friend_request.id %>
+      <%= f.submit "Add Friend", class: "btn btn-primary" %>
+    <% end %>
+</li>

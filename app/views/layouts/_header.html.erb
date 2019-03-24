@@ -1,13 +1,20 @@
 <nav>
     <ul>
-        <li> <%= link_to 'User', '#' %> </li>
-        <li> <%= link_to 'Home', users_path %> </li>
-        <li> <%= link_to 'Find Friends', '#' %> </li>
-        <%
-=begin%>
-          <li> <%= link_to 'Notification', '#' %> </li>
-          make it so it is a '# Notification/s (pluralizer)'
-<%
-=end%>
+        <% if user_signed_in? %>
+            <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+            <li><%= link_to('Notifications', friend_requests_path) %></li>
+            <li><%= link_to('Profile', current_user) %></li>
+            <li><%= link_to('Settings', edit_registration_path(current_user)) %></li>
+            <li> <%= link_to 'Home', posts_path %> </li>
+            <li> <%= link_to 'Find Friends', users_path %> </li>
+
+        <% else %>
+            <li>
+                <%= link_to('Login', new_user_session_path)  %>  
+            </li>
+                        <li>
+                <%= link_to('Register', new_user_registration_path)  %>
+            </li>
+        <% end %>
     </ul>
 </nav>

@@ -1,19 +1,36 @@
 class CommentsController < ApplicationController
-
-    def new
-        @comment = Comment.new(commentable_id: params[:commentable_id], commentable_type: params[:commentable_type])
-    end
-
+    include ApplicationHelper
+    before_action :authenticate_user!
     def create
-        commentable_id = params[:comment][:commentable_id]
-        commentable_type = params[:comment][:commentable_type]
-        if commentable_type == "post"
-            parent = Post.find(params[:comment][:commentable_id])
-        elsif commentable_type == "comment"
-            parent = Comment.find(params[:comment][:commentable_id])
-        end
-        @comment = parent.comments.build(content: params[:comment][:content], user_id: current_user.id)
+        @comment = Comment.create(comment_params)
+        @comment.user_id = current_user.id
         @comment.save
-        redirect_to current_user
+        redirect_back or root_url
     end
+
+    def edit
+        @comment = Comment.find(params[:id])
+    end
+
+    def update
+        @comment = Comment.find(params[:id])
+        @comment.update_attributes(comment_params)
+        redirect_back or root_url
+    end
+
+    def destroy
+        @comment.destroy
+        redirect_back or root_url
+    end
+
+    private
+        def comment_params
+            params.require(:comment).permit(:content, :commentable_id, :commentable_type)
+        end
+
+        def correct_user
+            @comment = current_user.comments.find_by(id: params[:id])
+            redirect_to root_url if @comment.nil?
+        end
+
 end

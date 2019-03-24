@@ -1,7 +1,20 @@
 <li>
-    <span><%= link_to comment.user.name, comment.user %></span>
-    <span><%= comment.content %></span>
-    <span><%= link_to 'Edit', '#'%></span>
-    <%= link_to 'New Comment', new_comment_path( commentable_id: comment.id, commentable_type: "comment" ) %>
-    <%= render comment.comments %>
+    <div><%= link_to comment.user.name, comment.user %></div>
+    <div><%= comment.content %></div>
+    <% if comment.likes.count > 0 %>
+        <div><%= "#{pluralize(comment.likes.count, 'person')} like this."%> </div>
+    <% end %>
+    <% if current_user.likes?(comment.id, comment.class.to_s) %>
+        <%= render partial: 'likes/destroy_like', locals:{like: current_user.likes?(comment.id, comment.class.to_s)  }  %>
+    <% else %>
+        <%= render partial: 'likes/create_like', locals:{likeable_id: comment.id, likeable_type:comment.class.to_s } %>
+    <% end %>
+    <% if comment.user_id = current_user.id %>
+        <%= link_to 'Edit', edit_comment_url(comment) %>
+        <%= link_to 'Delete', comment, method: :delete %>
+    <% end %>
+    <%= render partial: 'comments/create_comment',  locals:{commentable_id: comment.id, commentable_type: comment.class.to_s }  %>
+    <ul>
+        <%= render comment.comments %>
+    </ul>
 </li>

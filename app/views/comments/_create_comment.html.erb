@@ -1,0 +1,6 @@
+<%= form_for Comment.new do |f| %>
+  <%= f.text_area :content, placeholder: "Add a comment" %>
+  <%= f.hidden_field :commentable_id, value: commentable_id %>
+  <%= f.hidden_field :commentable_type, value: commentable_type %>
+  <%= f.submit "Comment", class: "btn btn-primary" %>
+<% end %>
