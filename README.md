@@ -33,9 +33,9 @@ This app is focused on showing my ability to create an application using rails.
 The main components are the backend relationships between users, posts, and likes.
 There are also integration tests for testing the project.
 
-This project users:
-Devise
-Postgresql
-Omniauth
-letter_opener
-faker (to create fake users, posts, and likes)
+This project uses:
+* Devise
+* Postgresql
+* Omniauth
+* letter_opener
+* faker (to create fake users, posts, and likes)
