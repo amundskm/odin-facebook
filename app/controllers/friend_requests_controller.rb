@@ -7,6 +7,5 @@ class FriendRequestsController < ApplicationController
 
     def index
         @friend_requests = current_user.received_friend_requests
-        redirect_to friend_requests_path
     end
 end
