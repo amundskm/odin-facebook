@@ -7,6 +7,7 @@ This is a rudimentary implementation of Facebook on Ruby on Rails.
 ### Prerequisites
 This app was built with
 `Ruby 2.6.0`
+
 `Rails 5.2.2`
 
 1. Pull Repository
