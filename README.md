@@ -1,24 +1,19 @@
-# README
+# Odin Facebook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a rudimentary implementation of Facebook on Ruby on Rails.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+### Prerequisites
+This app was built with
+`Ruby 2.6.0`
+'Rails 5.2.2'
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Pull Repository
+`git clone git@github.com:amundskm/odin-facebook.git`
+2. Setup Commands
+`bundle install`
+`rails db:migrate`
+`rails server`
+3. Open Local Host
+Once things are running, open your browser to http://localhost:3000/
