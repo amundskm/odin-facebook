@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :posts
   resources :likes, only: [:create, :destroy]
   resources :users
-  resources :friend_requests, only: [:new, :create, :destroy]
+  resources :friend_requests, only: [:new, :index, :create, :destroy]
   resources :friendships, only: [:new, :create, :destroy]
-  
+
   devise_scope :user do
     authenticated :user do
       root 'posts#index', as: :authenticated_root
@@ -18,4 +18,5 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+
 end
