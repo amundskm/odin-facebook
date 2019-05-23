@@ -10,10 +10,17 @@ This app was built with
 'Rails 5.2.2'
 
 1. Pull Repository
+
 `git clone git@github.com:amundskm/odin-facebook.git`
+
 2. Setup Commands
+
 `bundle install`
+
 `rails db:migrate`
+
 `rails server`
+
 3. Open Local Host
+
 Once things are running, open your browser to http://localhost:3000/
