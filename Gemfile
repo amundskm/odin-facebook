@@ -8,6 +8,8 @@ gem 'rails', '~> 5.2.2'
 gem 'devise'
 #Use PostgreSQL for database
 gem 'pg'
+# Use SendGrid to send emails to new users
+gem 'sendgrid-ruby'
 # Use Figaro to store secrets
 gem "figaro"
 #Add Heroku integration
