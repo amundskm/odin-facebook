@@ -8,6 +8,8 @@ gem 'rails', '~> 5.2.2'
 gem 'devise'
 #Use PostgreSQL for database
 gem 'pg'
+# Use Figaro to store secrets
+gem "figaro"
 #Add Heroku integration
 gem 'rails_12factor', group: :production
 # Use Puma as the app server
